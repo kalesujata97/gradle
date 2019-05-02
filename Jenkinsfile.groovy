@@ -22,6 +22,8 @@ node{
 				 credentialsId: 'ea4c3770-b2ed-4639-9ffc-cc3e586e454c' ]
 			  ]
 			])  
+	  
+	bat 'gradle clean build'
     
     bat 'gradle test -Ppay'
   }
