@@ -2,8 +2,7 @@ apply plugin: 'java'
 apply plugin: 'war' 
 apply plugin: 'jetty' 
 apply plugin: 'eclipse-wtp'
-
-
+apply plugin: 'org.sonarqube'
 
 
 repositories {
@@ -23,6 +22,15 @@ buildscript {
     }
     dependencies {
         classpath 'org.gradle.api.plugins:gradle-cloudbees-plugin:0.1'
+        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7'
+    }
+}
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://local:9000" //  url is your sonar server
+        property "sonar.projectName", "gradle-webapp"   //  this name will appear in dashboard
+        property "sonar.projectKey", "gradle-webapp" // It sould be a keybased on this report is created
+	
     }
 }
 
